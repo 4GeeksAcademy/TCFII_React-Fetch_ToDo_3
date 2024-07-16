@@ -27,7 +27,7 @@ const handleDelete = (index) => {
 };
 
 return (
-<div className="w-3/4 flex flex-col items-center border-2 rounded-lg border-black">
+<div className="w-3/4 flex flex-col items-center border-2 rounded-lg border-black text-black">
     <h1 className="text-xl mt-4 mb-4">To Do List</h1>
     <div>
         <input  className="w-full border-2 rounded-lg border-black mb-4" 
