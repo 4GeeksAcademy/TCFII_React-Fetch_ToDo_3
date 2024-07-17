@@ -1,9 +1,19 @@
-import React, {useState } from 'react';
+import React, {useState, useEffect } from 'react';
+import { getTodos } from '../services/getTodos';
 
-export function ToDoList ({ }) {
+export function ToDoList ({ user }) {
 
 const [todos,setTodos]=useState([]);
 const [task,setTask]=useState("");
+
+const loadData = async () => {
+    const data = await getTodos(user);
+    setTodos(data);
+  };
+
+  useEffect(() => {
+    loadData();
+  }, []);
 
 const addTask = () => {
     if (task.trim() !=='') {

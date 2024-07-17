@@ -8,7 +8,7 @@ export default function Home() {
 
     return (
         <div className="container mx-auto text-white text-xl">
-            <ToDoList />
+            <ToDoList user="user4"/>
         </div>
     );
 }
