@@ -3,7 +3,7 @@
 import React, {useState, useEffect } from 'react';
 import { getTodos } from '../services/getTodos';
 import { createTodo } from '../services/createTodo';
-import { getUsers } from "./services/getUsers";
+import { deleteTodo } from '../services/deleteTodo';
 
 
 export function ToDoList ({ user }) {
