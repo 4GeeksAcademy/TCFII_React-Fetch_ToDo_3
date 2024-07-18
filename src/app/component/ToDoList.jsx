@@ -1,8 +1,12 @@
+"use client";
+
 import React, {useState, useEffect } from 'react';
 import { getTodos } from '../services/getTodos';
+import { createTodo } from '../services/createTodo';
+import { getUsers } from "./services/getUsers";
+
 
 export function ToDoList ({ user }) {
-
 const [todos,setTodos]=useState([]);
 const [task,setTask]=useState("");
 
@@ -26,12 +30,15 @@ const handleChangeTask = (ev) => {
     setTask(ev.target.value);
 };
 
-const handleEnterKey = (ev) => {
+const handleEnterKey = async (ev) => {
     if(ev.key === "Enter") {
+        const newTodo = await createTodo(user, task.trim());
         addTask();
     }
 };
-const handleDelete = (index) => {
+const handleDelete = async (index) => {
+    const todo = todo[index];
+    await deleteTodo(todo.id)
     const newTodos = todos.filter((todos,id) => id !== index);
     setTodos(newTodos);
 };
